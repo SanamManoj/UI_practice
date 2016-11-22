@@ -1,0 +1,21 @@
+
+<div ng-show="ContactList.length > 0">Contact List</div>
+<table border="1" ng-show="ContactList.length>0">
+	<tr>
+	     <th>Email id</th>
+		<th>Name</th>
+	<!--  	<th>Book Id</th> -->
+		<th>Author</th>
+		
+
+	</tr>
+	<tr ng-repeat="contactObj in ContactList">
+		<td>{{contactObj.emailId}}</td>
+		<!--  <td>{{bookObj.bookId}}</td> -->
+		<td>{{contactObj.name}}</td>
+		<td>{{contactObj.author}}</td>
+
+	</tr>
+</table>
+
+
