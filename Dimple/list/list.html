@@ -1,0 +1,25 @@
+<div>
+	
+	<a href="#/addBook"><button>Add Book</button> </a>
+</div>
+
+<div ui-grid="bookGrid" ui-grid-pagination></div>
+
+<div ng-show="bookList.length > 0">Book List</div>
+<table border="1" ng-show="bookList.length>0">
+	<tr>
+		<th>Name</th>
+		<th>Author</th>
+		<th>Price</th>
+
+	</tr>
+	<tr ng-repeat="bookObj in bookList">
+		<td>{{bookObj.name}}</td>
+		<td>{{bookObj.author}}</td>
+		<td>{{bookObj.price}}</td>
+
+	</tr>
+</table>
+
+
+<div ng-if="bookList.length==0">No Results Found</div>
