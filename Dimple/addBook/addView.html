@@ -1,0 +1,30 @@
+
+<h2>Book Details</h2>
+<form name="bookForm" novalidate>
+
+<div>
+	Name:  &nbsp; <input type='text' ng-model='name' name='name' required ng-minlength=4 ng-maxlength=15 /> 
+</div>
+	<div ng-show="bookForm.name.$error.required && bookForm.name.$dirty " class="error">Book name can't be empty </div>
+    <div ng-show="bookForm.name.$error.minlength && bookForm.name.$dirty " class="error">must be atleast 4 characters </div>
+    <div ng-show="bookForm.name.$error.maxlength && bookForm.name.$dirty " class="error">must not exceed 15 characters </div>
+    
+<div>
+	Author: <input type='text' ng-model='author' name='author' required ng-minlength=3 ng-maxlength=10 / >
+</div>
+    <div ng-show="bookForm.author.$error.required && bookForm.author.$dirty " class="error">Author name can't be empty </div>
+    <div ng-show="bookForm.author.$error.minlength && bookForm.author.$dirty " class="error">must be atleast 3 characters </div>
+    <div ng-show="bookForm.author.$error.maxlength && bookForm.author.$dirty " class="error">must not exceed 10 characters </div>
+    
+
+<div>
+	Price: &nbsp; <input type='text' ng-model='price' name='price' required   ng-maxlength=2 />
+</div>
+<div ng-show ="bookForm.price.$error.required && bookForm.price.$dirty " class="error">price can't be empty </div>
+<div ng-show="bookForm.price.$error.maxlength && bookForm.price.$dirty " class="error"> should be less than 100  </div>
+
+<div>
+	<button ng-click="addBook()" ng-disabled="bookForm.$invalid">Submit</button>
+
+</div>
+</form>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>AngularJs Assignment</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"> </script>
+<script>
+var Module1 = angular.module("Angular", []);
+function PersonalInformation($scope)
+{
+$scope.username="Moksha";
+$scope.degree="M.S";
+$scope.sex="Female";
+}
+
+function Address($scope){
+$scope.Aptno="503";
+$scope.Apt="Vijaya Krishna Residency";
+$scope.place="KPHB";
+}
+	
+Module1.controller("Ang",PersonalInformation);	
+Module1.controller("Location",Address);
+
+</script>
+
+</head>
+<body ng-app="Angular">
+<div
+ng-controller="Ang">
+<h3 style="color:blue;"> <u> PersonalInformation </u> </h3> 
+<strong>Name:</strong>{{username}} <br>
+<strong>Qualification:</strong>{{degree}} <br>
+<strong>Gender:</strong>{{sex}} <br> <br>
+
+</div>
+<div ng-controller="Location">
+ <h3 style="color:blue;"> <u>Address </u> </h3>
+<strong>Flat no:</strong>{{Aptno}} <br>
+<strong>Apartment Name:</strong>{{Apt}} <br>
+<strong>Area:</strong>{{place}}
+</div>
+
+
+
+</body>
+</html>

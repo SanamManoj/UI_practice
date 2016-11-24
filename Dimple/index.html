@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>BookApp</title>
+<link rel="stylesheet" type="text/css" href="common/styles.css"> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+<script src="http://code.angularjs.org/1.2.0-rc.2/angular-route.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-grid/3.2.9/ui-grid.js"></script>
+<link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-grid/3.2.9/ui-grid.css"></link>
+<script src="http://cdn.rawgit.com/angular-translate/bower-angular-translate/2.4.0/angular-translate.min.js"></script>
+<script src="vendor/angular-translate-loader-static-files.min.js"></script>
+<script src="bookApp.js"></script>
+<script src="appRouteConfig.js"></script>
+<script src="list/listController.js"></script>
+<script src="list/listService.js"></script>
+<script src ="contact/contactController.js"></script>
+<script src ="contact/contactService.js"></script>
+<script src="addBook/addBookController.js"></script>
+
+
+</head>
+<body ng-app="bookApp" >
+
+	<div class="header">
+		<h1>Online Book Application</h1>
+	</div>
+	
+	<div class="folder">
+
+		<li><a href="#/list"> AllBooks</a></li> <br>
+		<li><a href="#/bestsellers">BestSellers</a></li> <br>
+		<li><a href="#/authors">Authors</a></li> <br>
+		<li><a href="#/contact">Contact</a></li> <br>
+
+	</div>
+	<div>
+	<div class="main" ng-view></div> </div>
+	<div class="footer">
+		Copyright &copy; &nbsp; <a href="http://www.bookplace.com/">www.bookplace.com</a>
+	</div>
+
+
+</body>
+</html>
