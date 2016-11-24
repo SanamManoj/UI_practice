@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Advance Custom Directive</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+<script type="text/javascript">
+	var myApp = angular.module("sampleApp", []);
+
+	myApp.controller("parentController", function($scope) {
+		$scope.companyName = "JP Morgan & Chase";
+		$scope.headQuarter = "NY";
+		$scope.revenueFromParent = "8888";
+	});
+
+	myApp.controller("directiveController", function($scope) {
+		$scope.companyName = "JP Morgan & Chase";
+		$scope.headQuarter = "NewYork";
+	});
+
+	myApp.directive("companyAddress", function() {
+		var directiveEle = {};
+		directiveEle.restrict = "E";
+		directiveEle.scope = {
+				revenue : "=" // = two way data binding 
+		};
+		directiveEle.controller = "directiveController";
+		//directiveEle.template = "<div>Company:JP Morgan & Chase</div><div>Head Quarters:NY</div><div>Revenue:$23423</div>";
+		directiveEle.templateUrl = "companyinfo.html";
+		directiveEle.link = function(scope, element, attrs) {
+			//alert("Custome directive rendered...");
+			element.bind("click", function() {
+				alert("You clicked on my custom directive");
+				scope.revenue = "55555";
+				scope.$apply(); //Refresh the scopes
+				
+			});
+			//element.css("background", "red");
+		};
+		directiveEle.compile = function(){
+			return {
+				pre:function(scope, element, attrs){
+					console.debug("Pre Rendering.... ");
+					scope.noAss = attrs["noass"];
+				},
+				post:function(scope, element, attrs){
+					console.debug("Post Rendering.... ");
+					element.bind("click", function() {
+						alert("You clicked on my custom directive from post compile");
+						scope.revenue = "55555";
+						scope.$apply(); //Refresh the scopes
+						
+					});
+				}
+			}
+		}
+		directiveEle.replace = true;
+		directiveEle.transclude = true;
+		return directiveEle;
+	});
+</script>
+</head>
+<body ng-app="sampleApp">
+
+	<div ng-controller="parentController">
+	    Parent Controller Revenue :{{revenueFromParent}}
+	    <div>---------------------------------------------</div>
+		<company-address revenue="revenueFromParent" noAss="2000"> Body text inside my custom directive</company-address>
+		
+		
+		
+
+		<!--
+	<div>Section-1</div>
+		<div>-------------------</div>
+	
+	 	<company-address></company-address>
+		<div>Section-2</div>
+		<div>-------------------</div>
+
+		<company-address></company-address>
+		<div>Section-3</div> -->
+	</div>
+</body>
+</html>

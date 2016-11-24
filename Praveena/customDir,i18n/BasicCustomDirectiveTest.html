@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Hello World</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+<script type="text/javascript">
+	var myApp = angular.module("sampleApp", []);
+	myApp.directive("companyAddress",function(){
+		var directiveEle = {};
+		directiveEle.restrict = "E";
+		directiveEle.template = "<div>Company:JP Morgan & Chase</div><div>Head Quarters:NY</div><div>Revenue:$23423</div>";
+		//directiveEle.templateUrl = "companyinfo.html";
+		return directiveEle;
+	});
+</script>
+</head>
+<body ng-app="sampleApp">
+	<company-address></company-address>
+	<div>Section-1</div>	
+	<div>-------------------</div>
+	
+	<company-address></company-address>
+	<div>Section-2</div>	
+	<div>-------------------</div>
+	
+	<company-address></company-address>
+	<div>Section-3</div>
+</body>
+</html>
